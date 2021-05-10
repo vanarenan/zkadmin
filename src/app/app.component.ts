@@ -6,15 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  
-  ourDate;
-  
-  showDate(): void {
-    this.ourDate = new Date();
-  }
-  
-  clearDate(): void {
-    this.ourDate = '';
-  }
-  
+ 
 }

@@ -1,11 +1,9 @@
-<span>Welcome</span>
-
-<div class="content" role="main">
-
-    <button (click)="showDate()">Show Date</button>
-    <button (click)="clearDate()">Clear Date</button>
-    <div>date is: {{ourDate}}</div>
-
-</div>
-
 <router-outlet></router-outlet>
+<div class="main-container">
+  <div class="list-panel">
+    <app-list></app-list>
+  </div>
+  <div class="user-panel">
+    <app-user></app-user>
+  </div>
+</div>
