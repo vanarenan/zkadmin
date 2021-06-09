@@ -1,1 +1,64 @@
-<mat-card>User info</mat-card>
+<mat-card>
+
+  <form [formGroup]="userForm">
+
+    <div>
+      <mat-form-field title="Прізвище, ім'я, по-батькові">
+        <mat-label>П.І.Б.</mat-label>
+        <input matInput formControlName="fullName" required>
+        <mat-error *ngIf="userForm.get('fullName').hasError('required')">Поле обов'язкове до заповнення</mat-error>
+      </mat-form-field>
+    </div>
+    
+    <div>
+      <mat-form-field>
+        <mat-label>Стать</mat-label>
+        <mat-select formControlName="gender">
+          <mat-option value="male">чоловік</mat-option>
+          <mat-option value="female">жінка</mat-option>
+          <mat-option value=""></mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    
+    <div>
+      <mat-form-field>
+        <mat-label>Дата народження</mat-label>
+        <input matInput formControlName="dateofbirth" [matDatepicker]="picker">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+    
+    <div>
+      <mat-form-field>
+        <mat-label>Телефон</mat-label>
+        <input matInput formControlName="phone">
+      </mat-form-field>
+    </div>
+    
+    <div>
+      <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email">
+        <mat-error *ngIf="userForm.get('email').hasError('email')">Не правильний email</mat-error>
+      </mat-form-field>
+    </div>
+    
+    <div>
+      <mat-form-field>
+        <mat-label>Департамент</mat-label>
+        <input matInput formControlName="department">
+      </mat-form-field>
+    </div>
+    
+    <div>
+      <mat-form-field>
+        <mat-label>Посада</mat-label>
+        <input matInput formControlName="position">
+      </mat-form-field>
+    </div>
+    
+  </form>
+
+</mat-card>
