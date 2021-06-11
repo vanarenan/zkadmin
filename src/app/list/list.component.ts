@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { UserService } from '../user.service';
+
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
@@ -7,34 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListComponent implements OnInit {
 
-  displayedColumns: string[] = ['id', 'name', 'photo'];
+  constructor(private userService: UserService) {
+    userService.refresh$.subscribe((id) => {
+      this.myDataArray = this.userService.read(); 
+      this.currentId = id || ''; 
+    });
+  }
 
-  myDataArray: {}[] = [
-      { id: 1, name: 'Hydrogen', photo: '' },
-      { id: 2, name: 'Helium', photo: '' },
-      { id: 3, name: 'Lithium', photo: '' },
-      { id: 4, name: 'Beryllium', photo: '' },
-      { id: 5, name: 'Boron', photo: '' },
-      { id: 6, name: 'Carbon', photo: '' },
-      { id: 7, name: 'Nitrogen', photo: '' },
-      { id: 8, name: 'Oxygen', photo: '' },
-      { id: 9, name: 'Fluorine', photo: '' },
-      { id: 10, name: 'Neon', photo: '' },
-      { id: 11, name: 'Hydrogen', photo: '' },
-      { id: 12, name: 'Helium', photo: '' },
-      { id: 13, name: 'Lithium', photo: '' },
-      { id: 14, name: 'Beryllium', photo: '' },
-      { id: 15, name: 'Boron', photo: '' },
-      { id: 16, name: 'Carbon', photo: '' },
-      { id: 17, name: 'Nitrogen', photo: '' },
-      { id: 18, name: 'Oxygen', photo: '' },
-      { id: 19, name: 'Fluorine', photo: '' },
-      { id: 20, name: 'Neon', photo: '' }
-  ];
+  displayedColumns: string[] = ['fullName', 'photo'];
 
-  constructor() { }
+  myDataArray: any[];
+  
+  currentId: string = '';
 
   ngOnInit(): void {
+    this.myDataArray = this.userService.read();
   }
 
 }

@@ -1,4 +1,9 @@
 <router-outlet></router-outlet>
+<mat-toolbar color="primary">
+  <span>ZK Admin</span>
+  <span class="spacer"></span>
+  <button mat-mini-fab color="primary" (click)="clearList()"><mat-icon>home</mat-icon></button>
+</mat-toolbar>
 <div class="main-container">
   <div class="list-panel">
     <app-list></app-list>

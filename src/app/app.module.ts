@@ -6,7 +6,10 @@ import * as moment from 'moment';
 
 import { MAT_DATE_LOCALE, MAT_DATE_FORMATS } from '@angular/material/core';
 import { MatFormFieldModule, MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
@@ -31,7 +34,10 @@ import { UserComponent } from './user/user.component';
     ReactiveFormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    MatIconModule,
+    MatButtonModule,
     MatCardModule,
+    MatToolbarModule,
     MatTableModule,
     MatInputModule,
     MatFormFieldModule,
